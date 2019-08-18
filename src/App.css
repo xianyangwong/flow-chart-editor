@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.wrapper__left {
+  min-width: 300px;
+  border-right: 2px solid #dedede;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper__left img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.wrapper__right {
+  text-align: center;
+}
+
+.wrapper__right--header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+canvas {
+  border: 4px solid black !important;
+}
+
