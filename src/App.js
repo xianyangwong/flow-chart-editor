@@ -1,10 +1,16 @@
+/* Component */
 import React, { Component } from 'react';
 import { Stage, Layer } from 'react-konva';
+
+/* Style */
 import "./App.css"
+
+/* Custom Component */
 import DocumentText from './DocumentText';
 import FlowText from './FlowText';
 import ProcessText from './ProcessText';
 
+/* Assets */
 import processInit from './process.png';
 import flowInit from './flow.png';
 import documentInit from './document.png';
@@ -16,26 +22,7 @@ class App extends Component {
 
     this.state = {
         type: "",
-        shapes: [
-          {
-            shape: "process",
-            positionX: 20,
-            positionY: 50,
-            name: "Process"
-          },
-          {
-            shape: "flow",
-            positionX: 400,
-            positionY: 100,
-            name: "Flow"
-          },
-          {
-            shape: "document",
-            positionX: 500,
-            positionY: 200,
-            name: "Document"
-          }
-        ]
+        shapes: []
     }
 
     this.stageRef = React.createRef()
@@ -46,8 +33,7 @@ class App extends Component {
   componentDidMount(){
     const con = document.querySelector('.konvajs-content')
     const dragItems = document.getElementById('drag-items')
-
-    var self = this;
+    let self = this;
 
     
     dragItems.addEventListener('dragstart', (e) => {
@@ -55,10 +41,7 @@ class App extends Component {
       });
 
     con.addEventListener('drop', (e) => {
-      console.log(e)
-      console.log(this.state.type)
-      // this.stageRef. (e);
-      var newShape;
+      let newShape;
 
       switch (this.state.type) {
         case 'process':
@@ -95,8 +78,6 @@ class App extends Component {
           ...this.state.shapes,
           newShape
         ]
-      }, ()=>{
-        console.log(this.state.shapes)
       })
 
     })
